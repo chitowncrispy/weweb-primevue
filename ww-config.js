@@ -59,6 +59,12 @@ export default {
           tooltip: 'A collection or an array of data: \n\n`myCollection` or `[{}, {}, ...]`',
       },
       /* wwEditor:end */
+    },
+    stripedRowsControl: {
+      label: { en: 'Striped table rows control' },
+      type: 'OnOff',
+      section: 'style',
+      defaultValue: false,
     }
   },
 };

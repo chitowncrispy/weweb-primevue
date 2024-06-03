@@ -1,5 +1,5 @@
 <template>
-  <DataTable :value="products" stripedRows tableStyle="min-width: 50rem">
+  <DataTable :value="products" :stripedRows="dynamicStripedRows" tableStyle="min-width: 50rem">
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :sortable="col.sortable"></Column>
   </DataTable>
 </template>
@@ -17,15 +17,18 @@ export default {
   setup() {
     const products = ref();
     const columns = ref();
+    const dynamicStripedRows = ref();
   },
   data() {
     return {
         products: null,
-        columns: null
+        columns: null,
+        dynamicStripedRows: false
     };
   },
   mounted() {
-    this.products = this.content.tableData || []
+    this.products = this.content.tableData || [];
+    this.dynamicStripedRows = this.content.stripedRowsControl || false;
   },
   beforeCreate: function () {
     this.$.appContext.app.use(Primevue)
