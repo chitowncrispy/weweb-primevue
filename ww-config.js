@@ -65,6 +65,12 @@ export default {
       type: 'OnOff',
       section: 'style',
       defaultValue: false,
+    },
+    paginatorControl: {
+      label: { en: 'Paginator control' },
+      type: 'OnOff',
+      section: 'style',
+      defaultValue: false,
     }
   },
 };

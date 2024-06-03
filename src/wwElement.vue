@@ -1,5 +1,5 @@
 <template>
-  <DataTable :value="products" :stripedRows="dynamicStripedRows" tableStyle="min-width: 50rem">
+  <DataTable :value="products" :stripedRows="dynamicStripedRows" :paginator="dynamicPaginator" :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]" paginatorTemplate="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink RowsPerPageDropdown" currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" tableStyle="min-width: 50rem">
     <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :sortable="col.sortable"></Column>
   </DataTable>
 </template>
@@ -18,17 +18,20 @@ export default {
     const products = ref();
     const columns = ref();
     const dynamicStripedRows = ref();
+    const dynamicPaginator = ref();
   },
   data() {
     return {
         products: null,
         columns: null,
-        dynamicStripedRows: false
+        dynamicStripedRows: false,
+        dynamicPaginator: false
     };
   },
   mounted() {
     this.products = this.content.tableData || [];
     this.dynamicStripedRows = this.content.stripedRowsControl || false;
+    this.dynamicPaginator = this.content.paginatorControl || false;
   },
   beforeCreate: function () {
     this.$.appContext.app.use(Primevue)
