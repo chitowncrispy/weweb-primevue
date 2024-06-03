@@ -69,7 +69,13 @@ export default {
     paginatorControl: {
       label: { en: 'Paginator control' },
       type: 'OnOff',
-      section: 'style',
+      section: 'settings',
+      defaultValue: false,
+    },
+    removeableSortControl: {
+      label: { en: 'Removable sort control' },
+      type: 'OnOff',
+      section: 'settings',
       defaultValue: false,
     }
   },

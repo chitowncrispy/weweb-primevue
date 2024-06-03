@@ -1220,10 +1220,11 @@ export const ProductService = {
 
     getColumns() {
         return [
-            {"field":"code","header":"Code","sortable":true},
-            {"field":"name","header":"Name","sortable":true},
-            {"field":"category","header":"Category","sortable":false},
-            {"field":"quantity","header":"Quantity","sortable":false}
+            {"field":"code","header":"Code","sortable":true,"customStyle":{"min-width":"150px"}},
+            {"field":"name","header":"Name","sortable":true,"customStyle":{"min-width":"200px"}},
+            {"field":"category","header":"Category","sortable":false,"customStyle":{"min-width":"250px"}},
+            {"field":"quantity","header":"Quantity","sortable":false,"customStyle":{"min-width":"300px"}},
+            {"field":"price","header":"Price","sortable":true,"customStyle":{"min-width":"350px"}}
         ];
     }
 };

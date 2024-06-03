@@ -1,6 +1,6 @@
 <template>
-  <DataTable :value="products" :stripedRows="dynamicStripedRows" :paginator="dynamicPaginator" :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]" paginatorTemplate="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink RowsPerPageDropdown" currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" tableStyle="min-width: 50rem">
-    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :sortable="col.sortable"></Column>
+  <DataTable :value="products" :stripedRows="dynamicStripedRows" :removableSort="dynamicRemovableSort" :paginator="dynamicPaginator" :rows="20" :rowsPerPageOptions="[5, 10, 20, 50]" paginatorTemplate="FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink RowsPerPageDropdown" currentPageReportTemplate="Showing {first} to {last} of {totalRecords}" tableStyle="min-width: 50rem">
+    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :sortable="col.sortable" :style="col.customStyle"></Column>
   </DataTable>
 </template>
 
@@ -19,19 +19,22 @@ export default {
     const columns = ref();
     const dynamicStripedRows = ref();
     const dynamicPaginator = ref();
+    const dynamicRemovableSort = ref();
   },
   data() {
     return {
         products: null,
         columns: null,
         dynamicStripedRows: false,
-        dynamicPaginator: false
+        dynamicPaginator: false,
+        dynamicRemovableSort: false
     };
   },
   mounted() {
     this.products = this.content.tableData || [];
     this.dynamicStripedRows = this.content.stripedRowsControl || false;
     this.dynamicPaginator = this.content.paginatorControl || false;
+    this.dynamicRemovableSort = this.content.removeableSortControl || false;
   },
   beforeCreate: function () {
     this.$.appContext.app.use(Primevue)
