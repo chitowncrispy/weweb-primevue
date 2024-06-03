@@ -1,6 +1,6 @@
 <template>
-  <DataTable :value="products" tableStyle="min-width: 50rem">
-    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header"></Column>
+  <DataTable :value="products" stripedRows tableStyle="min-width: 50rem">
+    <Column v-for="col of columns" :key="col.field" :field="col.field" :header="col.header" :sortable="col.sortable"></Column>
   </DataTable>
 </template>
 
@@ -11,6 +11,7 @@ import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Row from 'primevue/row'; 
 import "primevue/resources/themes/lara-light-indigo/theme.css";
+import { ProductService } from './ProductService.js'
 
 export default {
   setup() {
@@ -30,9 +31,10 @@ export default {
     this.$.appContext.app.use(Primevue)
     this.$.appContext.app.component('DataTable', DataTable)
     this.$.appContext.app.component('Column', Column)
-    this.$.appContext.app.component('Row', Row)
   },
   created() {
+    // The following line is for testing
+    // this.columns = ProductService.getColumns()
     this.columns = this.content.columns || []
   },
   props: {
