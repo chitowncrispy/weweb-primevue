@@ -77,6 +77,20 @@ export default {
       type: 'OnOff',
       section: 'settings',
       defaultValue: false,
+    },
+    showHeaderControl: {
+      label: { en: 'Search header control' },
+      type: 'OnOff',
+      section: 'settings',
+      defaultValue: false,
+    },
+    searchInputPlaceholder: {
+      label: { en: 'Search placeholder text' },
+      type: 'Text',
+      options: {
+        placeholder: 'Search'
+      },
+      section: 'settings'
     }
   },
 };

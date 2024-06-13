@@ -1,6 +1,6 @@
 {
   "name": "primevue-table",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "build": "weweb build",
     "serve": "weweb serve"
@@ -9,6 +9,8 @@
     "@weweb/cli": "latest"
   },
   "dependencies": {
-    "primevue": "^3.52.0"
+    "primevue": "3.52.0",
+    "primeicons": "7.0.0",
+    "primeflex": "3.3.1"
   }
 }
