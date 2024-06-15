@@ -69,8 +69,8 @@ export default {
   },
   created() {
     // The following line is for testing
-    this.columns = ProductService.getColumns();
-    // this.columns = this.content.columns || [];
+    // this.columns = ProductService.getColumns();
+    this.columns = this.content.columns || [];
     // this.dynamicGlobalFilterFields = this.columns.map(column => column.field);
   },
   props: {
